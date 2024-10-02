@@ -78,6 +78,7 @@ try:
         printDebug("[chat] request: {}", request)
         url = options['endpoint_url']
         response = openai_request(url, request, http_options)
+        printDebug("[chat] endpoint_url: {}", url)
         def map_chunk(resp):
             printDebug("[chat] response: {}", resp)
             return resp['choices'][0]['delta'].get('content', '')
