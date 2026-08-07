@@ -42,7 +42,7 @@ class OpenAIProvider():
         def _flatten_content(messages):
             # NOTE: Some providers like api.deepseek.com & api.groq.com expect a flat 'content' field.
             for message in messages:
-                if message['role'] in ('system', 'assistant'):
+                if message['role'] in ('system', 'assistant', 'user'):
                     message['content'] = '\n'.join(map(lambda c: c['text'], message['content']))
             return messages
 
